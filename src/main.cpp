@@ -67,24 +67,25 @@ int main()
             player = bn::sprite_items::square.create_sprite(PLAYER_X,PLAYER_Y);
             treasure = bn::sprite_items::dot.create_sprite(TREASURE_X, TREASURE_Y);
             score = 0;
+            speed_boosts_left = 3;
             
         }
 
         //If player presses a, give a temporary speed boost
-        if(bn::keypad::a_pressed()) {
+        // if(bn::keypad::a_pressed()) {
 
-            if(speed_boosts_left > 0){
-                speed_boosts_left --;
-            }
-        }
+        //     if(speed_boosts_left > 0){
+        //         speed_boosts_left --;
+        //     }
+        // }
 
         // Move player with d-pad
         if (bn::keypad::left_held())
         {
             player.set_x(player.x() - SPEED);
             if(bn::keypad::a_pressed()) {
-                player.set_x(player.x() - SPEED - boost_speed);
             if(speed_boosts_left > 0){
+                player.set_x(player.x() - SPEED - boost_speed);
                 speed_boosts_left --;
                 
             }

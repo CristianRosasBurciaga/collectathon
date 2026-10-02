@@ -79,8 +79,6 @@ int main() {
             
         }
 
-<<<<<<< HEAD
-=======
 //NEW: speed boost count
     bn::string<MAX_SCORE_CHARS> speed_boosts_left_string = bn::to_string<MAX_SCORE_CHARS>(speed_boosts_left);
 
@@ -97,7 +95,6 @@ int main() {
         //     }
         // }
 
->>>>>>> 824d94868603ce9bd016ee79de54dc0c9de4a211
         // Move player with d-pad
         if (bn::keypad::left_held())
         {

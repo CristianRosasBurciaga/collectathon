@@ -47,8 +47,7 @@ static constexpr int BOOST_Y = -70;
 
 
 
-int main()
-{
+int main() {
     bn::core::init();
 
     bn::random rng = bn::random();
@@ -60,7 +59,7 @@ int main()
     bn::vector<bn::sprite_ptr, MAX_SCORE_CHARS> boost_sprites = {};
     bn::vector<bn::sprite_ptr, MAX_SCORE_CHARS> score_sprites = {};
 
-    bn::string<MAX_SCORE_CHARS> score_string = bn::to_string<MAX_SCORE_CHARS>(speed_boosts_left_string);
+ //    bn::string<MAX_SCORE_CHARS> score_string = bn::to_string<MAX_SCORE_CHARS>(speed_boosts_left_string);
 
     int score = 0;
     int speed_boosts_left = 3;
@@ -84,6 +83,7 @@ int main()
         if (bn::keypad::left_held())
         {
             player.set_x(player.x() - SPEED);
+
             if(bn::keypad::a_pressed()) {
             if(speed_boosts_left > 0){
                 player.set_x(player.x() - SPEED - boost_speed);
@@ -94,6 +94,7 @@ int main()
         if (bn::keypad::right_held())
         {
             player.set_x(player.x() + SPEED);
+
             if(bn::keypad::a_pressed()) {
             if(speed_boosts_left > 0){
                 player.set_x(player.x() + SPEED + boost_speed);
@@ -104,6 +105,13 @@ int main()
         if (bn::keypad::up_held())
         {
             player.set_y(player.y() - SPEED);
+
+            if(bn::keypad::a_pressed()) {
+            if(speed_boosts_left > 0){
+                player.set_y(player.y() - SPEED - boost_speed);
+                speed_boosts_left --;               
+            }
+        }
         }
         if (bn::keypad::down_held())
         {

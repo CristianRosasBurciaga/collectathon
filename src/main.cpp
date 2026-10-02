@@ -87,7 +87,21 @@ int main()
 
 
         //NEW: If player goes out of bounds, loop back to opposite side
-        if()
+        if(player.x() < MIN_X){
+            player.set_x(MAX_X);
+        }
+
+        if(player.x() > MAX_X){
+            player.set_x(MIN_X);
+        }
+
+        if(player.y() < MIN_Y){
+            player.set_y(MAX_Y);
+        }
+
+        if(player.y() > MAX_Y){
+            player.set_y(MIN_Y);
+        }
 
 
         // The bounding boxes of the player and treasure, snapped to integer pixels

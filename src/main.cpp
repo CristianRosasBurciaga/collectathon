@@ -55,6 +55,7 @@ int main()
         if(bn::keypad::start_pressed()){
             player = bn::sprite_items::square.create_sprite(-50, 50);
             treasure = bn::sprite_items::dot.create_sprite(0, 0);
+            score = 0;
             
         }
 

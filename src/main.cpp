@@ -42,6 +42,10 @@ static constexpr int PLAYER_Y = -70;
 static constexpr int TREASURE_X = 20;
 static constexpr int TREASURE_Y = -10;
 
+static constexpr int BOOST_X = 70;
+static constexpr int BOOST_Y = -70;
+
+
 
 int main()
 {
@@ -50,8 +54,13 @@ int main()
     bn::random rng = bn::random();
 
     // Will hold the sprites for the score
-    bn::vector<bn::sprite_ptr, MAX_SCORE_CHARS> score_sprites = {};
     bn::sprite_text_generator text_generator(common::fixed_8x16_sprite_font);
+
+    //NEW: displays boost number left
+    bn::vector<bn::sprite_ptr, MAX_SCORE_CHARS> boost_sprites = {};
+    bn::vector<bn::sprite_ptr, MAX_SCORE_CHARS> score_sprites = {};
+
+    bn::string<MAX_SCORE_CHARS> score_string = bn::to_string<MAX_SCORE_CHARS>(speed_boosts_left_string);
 
     int score = 0;
     int speed_boosts_left = 3;

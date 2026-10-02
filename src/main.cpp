@@ -71,14 +71,6 @@ int main()
             
         }
 
-        //If player presses a, give a temporary speed boost
-        // if(bn::keypad::a_pressed()) {
-
-        //     if(speed_boosts_left > 0){
-        //         speed_boosts_left --;
-        //     }
-        // }
-
         // Move player with d-pad
         if (bn::keypad::left_held())
         {
@@ -86,14 +78,19 @@ int main()
             if(bn::keypad::a_pressed()) {
             if(speed_boosts_left > 0){
                 player.set_x(player.x() - SPEED - boost_speed);
-                speed_boosts_left --;
-                
+                speed_boosts_left --;               
             }
         }
         }
         if (bn::keypad::right_held())
         {
             player.set_x(player.x() + SPEED);
+            if(bn::keypad::a_pressed()) {
+            if(speed_boosts_left > 0){
+                player.set_x(player.x() + SPEED + boost_speed);
+                speed_boosts_left --;               
+            }
+        }
         }
         if (bn::keypad::up_held())
         {

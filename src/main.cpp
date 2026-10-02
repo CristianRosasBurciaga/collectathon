@@ -42,7 +42,7 @@ static constexpr int PLAYER_Y = -70;
 static constexpr int TREASURE_X = 20;
 static constexpr int TREASURE_Y = -10;
 
-static constexpr int BOOST_X = 70;
+static constexpr int BOOST_X = -70;
 static constexpr int BOOST_Y = -70;
 
 
@@ -57,13 +57,13 @@ int main()
     bn::sprite_text_generator text_generator(common::fixed_8x16_sprite_font);
 
     //NEW: displays boost number left
-    bn::vector<bn::sprite_ptr, MAX_SCORE_CHARS> boost_sprites = {};
     bn::vector<bn::sprite_ptr, MAX_SCORE_CHARS> score_sprites = {};
-
-    bn::string<MAX_SCORE_CHARS> score_string = bn::to_string<MAX_SCORE_CHARS>(speed_boosts_left_string);
+    bn::vector<bn::sprite_ptr, MAX_SCORE_CHARS> boost_sprites = {};
 
     int score = 0;
     int speed_boosts_left = 3;
+
+
     int boost_speed = 10;
     bn::backdrop::set_color(bn::color(12,5,28));
     bn::sprite_ptr player = bn::sprite_items::square.create_sprite(PLAYER_X, PLAYER_Y); //player spawn location..?
@@ -79,6 +79,14 @@ int main()
             speed_boosts_left = 3;
             
         }
+
+//NEW: speed boost count
+    bn::string<MAX_SCORE_CHARS> speed_boosts_left_string = bn::to_string<MAX_SCORE_CHARS>(speed_boosts_left);
+
+    //NEW: update the boost display
+    boost_sprites.clear();
+    text_generator.generate(BOOST_X, BOOST_Y, speed_boosts_left_string, boost_sprites);
+
 
         //If player presses a, give a temporary speed boost
         // if(bn::keypad::a_pressed()) {

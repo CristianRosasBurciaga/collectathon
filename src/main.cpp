@@ -59,7 +59,7 @@ int main() {
     bn::vector<bn::sprite_ptr, MAX_SCORE_CHARS> boost_sprites = {};
     bn::vector<bn::sprite_ptr, MAX_SCORE_CHARS> score_sprites = {};
 
- //    bn::string<MAX_SCORE_CHARS> score_string = bn::to_string<MAX_SCORE_CHARS>(speed_boosts_left_string);
+    bn::string<MAX_SCORE_CHARS> score_string = bn::to_string<MAX_SCORE_CHARS>(speed_boosts_left_string);
 
     int score = 0;
     int speed_boosts_left = 3;
@@ -116,6 +116,12 @@ int main() {
         if (bn::keypad::down_held())
         {
             player.set_y(player.y() + SPEED);
+            if(bn::keypad::a_pressed()) {
+                if(speed_boosts_left > 0){
+                    player.set_y(player.y() + SPEED + boost_speed);
+                    speed_boosts_left --;               
+                }
+            }
         }
 
 

@@ -82,6 +82,11 @@ int main()
             player.set_y(player.y() + SPEED);
         }
 
+
+        //NEW: If player goes out of bounds, loop back to opposite side
+        if()
+
+
         // The bounding boxes of the player and treasure, snapped to integer pixels
         bn::rect player_rect = bn::rect(player.x().round_integer(),
                                         player.y().round_integer(),

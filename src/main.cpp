@@ -55,6 +55,7 @@ int main()
 
     int score = 0;
     int speed_boosts_left = 3;
+    int boost_speed = 10;
     bn::backdrop::set_color(bn::color(12,5,28));
     bn::sprite_ptr player = bn::sprite_items::square.create_sprite(PLAYER_X, PLAYER_Y); //player spawn location..?
     bn::sprite_ptr treasure = bn::sprite_items::dot.create_sprite(TREASURE_X, TREASURE_Y);
@@ -69,10 +70,25 @@ int main()
             
         }
 
+        //If player presses a, give a temporary speed boost
+        if(bn::keypad::a_pressed()) {
+
+            if(speed_boosts_left > 0){
+                speed_boosts_left --;
+            }
+        }
+
         // Move player with d-pad
         if (bn::keypad::left_held())
         {
             player.set_x(player.x() - SPEED);
+            if(bn::keypad::a_pressed()) {
+                player.set_x(player.x() - SPEED - boost_speed);
+            if(speed_boosts_left > 0){
+                speed_boosts_left --;
+                
+            }
+        }
         }
         if (bn::keypad::right_held())
         {
@@ -85,15 +101,6 @@ int main()
         if (bn::keypad::down_held())
         {
             player.set_y(player.y() + SPEED);
-        }
-
-        //If player presses a, give a temporary speed boost
-        if(bn::keypad::a_pressed()) {
-            SPEED + 3 = SPEED;
-
-            if(speed_boosts_left > 0){
-                speed_boosts_left --;
-            }
         }
 
 

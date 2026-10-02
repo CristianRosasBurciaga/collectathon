@@ -54,6 +54,8 @@ int main()
         //if player presses start reset starting position of sprite and treasure
         if(bn::keypad::start_pressed()){
             player = bn::sprite_items::square.create_sprite(-50, 50);
+            treasure = bn::sprite_items::dot.create_sprite(0, 0);
+            
         }
 
         // Move player with d-pad

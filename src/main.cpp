@@ -34,12 +34,12 @@ static constexpr int MAX_SCORE_CHARS = 11;
 static constexpr int SCORE_X = 70;
 static constexpr int SCORE_Y = -70;
 
-//sprite starting location
+//NEW: sprite starting location
 
-static constexpr int PLAYER_X = 80;
-static constexpr int PLAYER_Y = -80;
+static constexpr int PLAYER_X = 50;
+static constexpr int PLAYER_Y = -70;
 
-static constexpr int TREASURE_X = 10;
+static constexpr int TREASURE_X = 20;
 static constexpr int TREASURE_Y = -10;
 
 //speed boost count
@@ -92,6 +92,25 @@ int main()
         if(bn::keypad::a_held()) {
             SPEED + SPEED = 3;
         }
+
+
+        //NEW: If player goes out of bounds, loop back to opposite side
+        if(player.x() < MIN_X){
+            player.set_x(MAX_X);
+        }
+
+        if(player.x() > MAX_X){
+            player.set_x(MIN_X);
+        }
+
+        if(player.y() < MIN_Y){
+            player.set_y(MAX_Y);
+        }
+
+        if(player.y() > MAX_Y){
+            player.set_y(MIN_Y);
+        }
+
 
         // The bounding boxes of the player and treasure, snapped to integer pixels
         bn::rect player_rect = bn::rect(player.x().round_integer(),

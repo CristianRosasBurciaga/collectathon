@@ -88,6 +88,11 @@ int main()
             player.set_y(player.y() + SPEED);
         }
 
+        //If player presses a, give a temporary speed boost
+        if(bn::keypad::a_held()) {
+            SPEED + SPEED = 3;
+        }
+
         // The bounding boxes of the player and treasure, snapped to integer pixels
         bn::rect player_rect = bn::rect(player.x().round_integer(),
                                         player.y().round_integer(),

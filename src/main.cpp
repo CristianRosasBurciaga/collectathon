@@ -39,8 +39,8 @@ static constexpr int SCORE_Y = -70;
 static constexpr int PLAYER_X = 80;
 static constexpr int PLAYER_Y = -80;
 
-static constexpr int TREASURE_X = 0;
-static constexpr int TREASURE_Y = 0;
+static constexpr int TREASURE_X = 10;
+static constexpr int TREASURE_Y = -10;
 
 int main()
 {

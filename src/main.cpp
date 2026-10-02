@@ -42,6 +42,9 @@ static constexpr int PLAYER_Y = -80;
 static constexpr int TREASURE_X = 10;
 static constexpr int TREASURE_Y = -10;
 
+//speed boost count
+static constexpr int SPEED_BOOST = 3;
+
 int main()
 {
     bn::core::init();

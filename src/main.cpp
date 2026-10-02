@@ -14,7 +14,7 @@
 #include "common_fixed_8x16_font.h"
 
 // Pixels / Frame player moves at
-static constexpr bn::fixed SPEED = 1;
+static constexpr bn::fixed SPEED = 3;
 
 // Width and height of the the player and treasure bounding boxes
 static constexpr bn::size PLAYER_SIZE = {8, 8};
@@ -45,7 +45,7 @@ int main()
 
     int score = 0;
 
-    bn::sprite_ptr player = bn::sprite_items::square.create_sprite(-50, 50);
+    bn::sprite_ptr player = bn::sprite_items::square.create_sprite(-50, 50); //player spawn location..?
     bn::sprite_ptr treasure = bn::sprite_items::dot.create_sprite(0, 0);
 
     while (true)

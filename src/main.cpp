@@ -15,7 +15,7 @@
 #include "common_fixed_8x16_font.h"
 
 // Pixels / Frame player moves at
-static constexpr bn::fixed SPEED = 3;
+static constexpr bn::fixed SPEED = 1;
 
 // Width and height of the the player and treasure bounding boxes
 static constexpr bn::size PLAYER_SIZE = {8, 8};
@@ -89,8 +89,8 @@ int main()
         }
 
         //If player presses a, give a temporary speed boost
-        if(bn::keypad::a_held()) {
-            SPEED + SPEED = 3;
+        if(bn::keypad::a_pressed()) {
+            SPEED + 3 = SPEED;
         }
 
 

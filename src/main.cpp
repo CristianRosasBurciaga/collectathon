@@ -34,12 +34,12 @@ static constexpr int MAX_SCORE_CHARS = 11;
 static constexpr int SCORE_X = 70;
 static constexpr int SCORE_Y = -70;
 
-//sprite starting location
+//NEW: sprite starting location
 
-static constexpr int PLAYER_X = 80;
-static constexpr int PLAYER_Y = -80;
+static constexpr int PLAYER_X = 50;
+static constexpr int PLAYER_Y = -70;
 
-static constexpr int TREASURE_X = 10;
+static constexpr int TREASURE_X = 20;
 static constexpr int TREASURE_Y = -10;
 
 int main()

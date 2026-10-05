@@ -110,31 +110,29 @@ int main() {
             player.set_x(player.x() + SPEED);
 
             if(bn::keypad::a_pressed() && speed_boosts_left > 0) {
-            if(speed_boosts_left > 0){
                 player.set_x(player.x() + SPEED + boost_speed);
                 speed_boosts_left --;               
+            
             }
-        }
         }
         if (bn::keypad::up_held())
         {
             player.set_y(player.y() - SPEED);
 
-            if(bn::keypad::a_pressed()&& speed_boosts_left > 0) {
-            if(speed_boosts_left > 0){
+            if(bn::keypad::a_pressed() && speed_boosts_left > 0) {
                 player.set_y(player.y() - SPEED - boost_speed);
                 speed_boosts_left --;               
+            
             }
-        }
         }
         if (bn::keypad::down_held())
         {
             player.set_y(player.y() + SPEED);
+
             if(bn::keypad::a_pressed() && speed_boosts_left > 0) {
-                if(speed_boosts_left > 0){
                     player.set_y(player.y() + SPEED + boost_speed);
                     speed_boosts_left --;               
-                }
+            
             }
         }
 

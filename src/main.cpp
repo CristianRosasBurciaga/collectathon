@@ -61,6 +61,8 @@ int main() {
 
     int score = 0;
     int speed_boosts_left = 3;
+    int boost_timer = 60;
+
 
 
     int boost_speed = 10;
@@ -102,8 +104,16 @@ int main() {
 
             if(bn::keypad::a_pressed() && speed_boosts_left > 0) {
                 player.set_x(player.x() - SPEED - boost_speed);
-                speed_boosts_left --;               
-        }
+                boost_timer = 60;
+                speed_boosts_left --; 
+            
+            }
+
+            if(boost_timer > 0){
+                    boost_timer --;
+                }
+
+
         }
         if (bn::keypad::right_held())
         {

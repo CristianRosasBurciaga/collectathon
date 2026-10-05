@@ -126,6 +126,12 @@ int main() {
                 speed_boosts_left --;               
             
             }
+
+            if(boost_timer > 0){
+                player.set_x(player.x() - SPEED - boost_speed);
+
+                boost_timer --;
+                }
         }
         if (bn::keypad::up_held())
         {
@@ -136,6 +142,12 @@ int main() {
                 speed_boosts_left --;               
             
             }
+
+            if(boost_timer > 0){
+                player.set_x(player.x() - SPEED - boost_speed);
+
+                boost_timer --;
+                }
         }
         if (bn::keypad::down_held())
         {
@@ -146,6 +158,12 @@ int main() {
                     speed_boosts_left --;               
             
             }
+
+            if(boost_timer > 0){
+                player.set_x(player.x() - SPEED - boost_speed);
+
+                boost_timer --;
+                }
         }
 
 

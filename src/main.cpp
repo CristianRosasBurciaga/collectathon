@@ -9,7 +9,6 @@
 #include <bn_size.h>
 #include <bn_string.h>
 #include <bn_backdrop.h>
-#include <chrono>
 
 #include "bn_sprite_items_dot.h"
 #include "bn_sprite_items_square.h"
@@ -65,7 +64,7 @@ int main() {
     int boost_timer = 60;
 
 
-    int boost_speed = 10;
+    int boost_speed = 5;
     bn::backdrop::set_color(bn::color(12,5,28));
     bn::sprite_ptr player = bn::sprite_items::square.create_sprite(PLAYER_X, PLAYER_Y); //player spawn location..?
     bn::sprite_ptr treasure = bn::sprite_items::dot.create_sprite(TREASURE_X, TREASURE_Y);

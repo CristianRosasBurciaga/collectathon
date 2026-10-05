@@ -47,7 +47,6 @@ static constexpr int BOOST_Y = -70;
 
 int main() {
     bn::core::init();
-    int test = 1;
 
     bn::random rng = bn::random();
 

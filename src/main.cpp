@@ -45,10 +45,9 @@ static constexpr int TREASURE_Y = -10;
 static constexpr int BOOST_X = -70;
 static constexpr int BOOST_Y = -70;
 
-
-
 int main() {
     bn::core::init();
+    int test = 1;
 
     bn::random rng = bn::random();
 

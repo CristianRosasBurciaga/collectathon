@@ -62,11 +62,11 @@ int main() {
 
     int score = 0;
     int speed_boosts_left = 3;
-    int boost_timer = 60;
+    int boost_timer = 0;
 
 
 
-    int boost_speed = 10;
+    int boost_speed = 3;
     bn::backdrop::set_color(bn::color(12,5,28));
     bn::sprite_ptr player = bn::sprite_items::square.create_sprite(PLAYER_X, PLAYER_Y); //player spawn location..?
     bn::sprite_ptr treasure = bn::sprite_items::dot.create_sprite(TREASURE_X, TREASURE_Y);

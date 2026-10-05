@@ -65,7 +65,6 @@ int main() {
     int boost_timer = 60;
 
 
-
     int boost_speed = 10;
     bn::backdrop::set_color(bn::color(12,5,28));
     bn::sprite_ptr player = bn::sprite_items::square.create_sprite(PLAYER_X, PLAYER_Y); //player spawn location..?
@@ -105,7 +104,6 @@ int main() {
 
             if(bn::keypad::a_pressed() && speed_boosts_left > 0) {
                 player.set_x(player.x() - SPEED - boost_speed);
-                boost_timer = 60;
                 speed_boosts_left --; 
             
             }

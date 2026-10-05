@@ -64,7 +64,7 @@ int main() {
     int boost_timer = 60;
 
 
-    int boost_speed = 5;
+    int boost_speed = 2;
     bn::backdrop::set_color(bn::color(12,5,28));
     bn::sprite_ptr player = bn::sprite_items::square.create_sprite(PLAYER_X, PLAYER_Y); //player spawn location..?
     bn::sprite_ptr treasure = bn::sprite_items::dot.create_sprite(TREASURE_X, TREASURE_Y);
@@ -102,16 +102,21 @@ int main() {
             player.set_x(player.x() - SPEED);
 
             if(bn::keypad::a_pressed() && speed_boosts_left > 0) {
-                boost_timer = 60;
-                speed_boosts_left --; 
+
+                if(boost_timer > 0) {
+                player.set_x(player.x() - SPEED - boost_speed);
+                boost_timer--;
+
+                }
+                speed_boosts_left--;
             
             }
 
-            if(boost_timer > 0){
-                player.set_x(player.x() - SPEED - boost_speed);
+            // if(boost_timer > 0){
+            //     player.set_x(player.x() - SPEED - boost_speed);
 
-                boost_timer --;
-                }
+            //     boost_timer --;
+            //     }
 
 
         }

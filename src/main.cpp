@@ -61,10 +61,11 @@ int main() {
 
     int score = 0;
     int speed_boosts_left = 3;
-    int boost_timer = 60;
+    int boost_timer = 0;
 
 
-    int boost_speed = 2;
+
+    int boost_speed = 3;
     bn::backdrop::set_color(bn::color(12,5,28));
     bn::sprite_ptr player = bn::sprite_items::square.create_sprite(PLAYER_X, PLAYER_Y); //player spawn location..?
     bn::sprite_ptr treasure = bn::sprite_items::dot.create_sprite(TREASURE_X, TREASURE_Y);
@@ -88,67 +89,75 @@ int main() {
     text_generator.generate(BOOST_X, BOOST_Y, speed_boosts_left_string, boost_sprites);
 
 
-        //If player presses a, give a temporary speed boost
-        // if(bn::keypad::a_pressed()) {
-
-        //     if(speed_boosts_left > 0){
-        //         speed_boosts_left --;
-        //     }
-        // }
-
-        // Move player with d-pad
+        //LEFT
         if (bn::keypad::left_held())
         {
             player.set_x(player.x() - SPEED);
 
             if(bn::keypad::a_pressed() && speed_boosts_left > 0) {
+                boost_timer = 60;
+                speed_boosts_left--;
+                }
 
                 if(boost_timer > 0) {
                 player.set_x(player.x() - SPEED - boost_speed);
-                boost_timer--;
-
-                }
-                speed_boosts_left--;
-            
-            }
-
-            // if(boost_timer > 0){
-            //     player.set_x(player.x() - SPEED - boost_speed);
-
-            //     boost_timer --;
-            //     }
-
-
+                }  
         }
+
+        //RIGHT
         if (bn::keypad::right_held())
         {
             player.set_x(player.x() + SPEED);
 
             if(bn::keypad::a_pressed() && speed_boosts_left > 0) {
-                player.set_x(player.x() + SPEED + boost_speed);
+                boost_timer = 60;
                 speed_boosts_left --;               
             
             }
+
+            if(boost_timer > 0){
+                player.set_x(player.x() + SPEED + boost_speed);
+
+            }
         }
+
+        //UP
         if (bn::keypad::up_held())
         {
             player.set_y(player.y() - SPEED);
 
             if(bn::keypad::a_pressed() && speed_boosts_left > 0) {
-                player.set_y(player.y() - SPEED - boost_speed);
+                boost_timer = 60;                
                 speed_boosts_left --;               
             
             }
+
+            if(boost_timer > 0){
+                player.set_y(player.y() - SPEED - boost_speed);
+
+            }
         }
+
+        //DOWN
         if (bn::keypad::down_held())
         {
             player.set_y(player.y() + SPEED);
 
             if(bn::keypad::a_pressed() && speed_boosts_left > 0) {
-                    player.set_y(player.y() + SPEED + boost_speed);
+                    boost_timer = 60;
                     speed_boosts_left --;               
             
             }
+
+            if(boost_timer > 0){
+                player.set_y(player.y() + SPEED + boost_speed);
+
+            }
+
+        }
+
+        if(boost_timer > 0){
+            boost_timer--;
         }
 
 

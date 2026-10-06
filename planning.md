@@ -35,5 +35,10 @@ if statements that repeat loop and add score
 
 ## Plan for implementing game
 
+- edit the original boost counter if statement with a new int that is displayed on the screen to show the counter
+- (refrence the implemented treasure counter for the boost counter)
+- make an if statement when the sprite collects the treasure, the background color changes
+- edit the graphics file for the sprite picture
+
 
 

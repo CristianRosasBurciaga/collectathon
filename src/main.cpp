@@ -169,6 +169,12 @@ int main() {
         //RIGHT
         if (bn::keypad::right_held())
         {
+            //add direction checker
+            if (direction != 2){
+                player = bn::sprite_items::chicken_right.create_sprite(player.x(), player.y());
+                direction = 2;
+            }
+
             player.set_x(player.x() + SPEED);
 
             if(bn::keypad::a_pressed() && speed_boosts_left > 0) {

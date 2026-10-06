@@ -17,7 +17,10 @@ conditional statements that rely on the movement of the user
 if statements that repeat loop and add score
 
 ## Planning required changes
-
+- already implemented the boost count on the screen 
+- change the color of the background/make a color affect when the player collects the treasure
+- change the sprite to another picture
+-change the treasure picture
 
 
 ## Brainstorming game ideas

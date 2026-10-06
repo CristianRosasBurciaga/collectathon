@@ -12,6 +12,9 @@
 
 #include "bn_sprite_items_dot.h"
 #include "bn_sprite_items_square.h"
+#include "bn_sprite_items_chicken_front.h"
+#include "bn_sprite_items_chicken_right.h"
+#include "bn_sprite_items_chicken_left.h"
 #include "common_fixed_8x16_font.h"
 
 
@@ -67,14 +70,14 @@ int main() {
 
     int boost_speed = 3;
     bn::backdrop::set_color(bn::color(12,5,28));
-    bn::sprite_ptr player = bn::sprite_items::square.create_sprite(PLAYER_X, PLAYER_Y); //player spawn location..?
+    bn::sprite_ptr player = bn::sprite_items::chicken_front.create_sprite(PLAYER_X, PLAYER_Y); //player spawn location..?
     bn::sprite_ptr treasure = bn::sprite_items::dot.create_sprite(TREASURE_X, TREASURE_Y);
 
     while (true)
     {
         //if player presses start reset starting position of sprite and treasure
         if(bn::keypad::start_pressed()){
-            player = bn::sprite_items::square.create_sprite(PLAYER_X,PLAYER_Y);
+            player = bn::sprite_items::chicken_front.create_sprite(PLAYER_X,PLAYER_Y);
             treasure = bn::sprite_items::dot.create_sprite(TREASURE_X, TREASURE_Y);
             score = 0;
             speed_boosts_left = 3;

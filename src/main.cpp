@@ -146,6 +146,14 @@ int main() {
         //LEFT
         if (bn::keypad::left_held())
         {
+
+            //add direction checker
+            if (direction != 1){
+                player = bn::sprite_items::chicken_left.create_sprite(player.x(), player.y());
+                direction = 1;
+            }
+
+
             player.set_x(player.x() - SPEED);
 
             if(bn::keypad::a_pressed() && speed_boosts_left > 0) {

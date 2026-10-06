@@ -69,6 +69,9 @@ int main() {
 
 
     int boost_speed = 3;
+
+    //for chicken sprite
+    int direction = 0; //0 is for the front facing direction 1 is for left, 2 is for right 
     bn::backdrop::set_color(bn::color(12,5,28));
     bn::sprite_ptr player = bn::sprite_items::chicken_front.create_sprite(PLAYER_X, PLAYER_Y); //player spawn location..?
     bn::sprite_ptr treasure = bn::sprite_items::dot.create_sprite(TREASURE_X, TREASURE_Y);

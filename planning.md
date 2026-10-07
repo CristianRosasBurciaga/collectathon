@@ -44,5 +44,8 @@ if statements that repeat loop and add score
         - use procreate to draw the left, right, and front sprite images
         - put the original square.bmp and square.json into a seperate file in case it is neccessary
 
+        -use a new int for direction that changes for different inputs (instead of constantly creating a sprite)
+        - if statement for each dpad direction input that checks what number the direction is and changes it accordingly
+
 
 

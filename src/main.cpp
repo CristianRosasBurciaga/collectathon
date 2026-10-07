@@ -285,7 +285,8 @@ int main() {
             //If chicken intersects with the treasure, change the color of the screen 
             //for celebration effect
             screen_timer = 60;
-            if(screen_timer > 0) {
+        }
+        if(screen_timer > 0) {
                 bn::backdrop::set_color(bn::color(14, 20, 9));
                 screen_timer--;
             }
@@ -294,7 +295,6 @@ int main() {
             bn::backdrop::set_color(bn::color(31, 31, 31));
 
             }
-        }
 
         // Update score display
         bn::string<MAX_SCORE_CHARS> score_string = bn::to_string<MAX_SCORE_CHARS>(score);

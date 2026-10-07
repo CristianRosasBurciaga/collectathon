@@ -73,11 +73,11 @@ int main() {
 
     //for chicken sprite
     int direction = 0; //0 is for the front facing direction 1 is for left, 2 is for right 
-    bn::backdrop::set_color(bn::color(12,5,28));
     bn::sprite_ptr player = bn::sprite_items::chicken_front.create_sprite(PLAYER_X, PLAYER_Y); //player spawn location..?
     bn::sprite_ptr treasure = bn::sprite_items::dot.create_sprite(TREASURE_X, TREASURE_Y);
 
     while (true) {
+        bn::backdrop::set_color(bn::color(12,5,28));
         //if player presses start reset starting position of sprite and treasure
         if(bn::keypad::start_pressed()){
             player = bn::sprite_items::chicken_front.create_sprite(PLAYER_X,PLAYER_Y);
@@ -291,6 +291,10 @@ int main() {
                 screen_timer--;
             }
                 
+            // if(screen_timer == 0) {
+            // bn::backdrop::set_color(bn::color(31, 31, 31));
+
+            // }
 
         // Update score display
         bn::string<MAX_SCORE_CHARS> score_string = bn::to_string<MAX_SCORE_CHARS>(score);

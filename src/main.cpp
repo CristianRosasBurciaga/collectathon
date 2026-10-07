@@ -76,8 +76,7 @@ int main() {
     bn::sprite_ptr player = bn::sprite_items::chicken_front.create_sprite(PLAYER_X, PLAYER_Y); //player spawn location..?
     bn::sprite_ptr treasure = bn::sprite_items::dot.create_sprite(TREASURE_X, TREASURE_Y);
 
-    while (true)
-    {
+    while (true) {
         //if player presses start reset starting position of sprite and treasure
         if(bn::keypad::start_pressed()){
             player = bn::sprite_items::chicken_front.create_sprite(PLAYER_X,PLAYER_Y);
@@ -284,12 +283,17 @@ int main() {
 
             //If chicken intersects with the treasure, change the color of the screen 
             //for celebration effect
-            bn::backdrop::set_color(bn::color(31, 31, 31));
             int screen_timer = 60;
             
-            while(screen_timer > 0) {
+            if(screen_timer > 0) {
                 bn::backdrop::set_color(bn::color(14, 20, 9));
-                screen_timer--; 
+            }
+            if(screen_timer > 0) {
+                screen_timer--;
+            }
+            if(screen_timer == 0) {
+            bn::backdrop::set_color(bn::color(31, 31, 31));
+
             }
 
         }

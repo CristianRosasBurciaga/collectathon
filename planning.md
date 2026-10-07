@@ -39,6 +39,10 @@ if statements that repeat loop and add score
 - (refrence the implemented treasure counter for the boost counter)
 - make an if statement when the sprite collects the treasure, the background color changes
 - edit the graphics file for the sprite picture
+        - refrence the bn actions to help with sprite (I only needed the basic structure because the example used one whole bmp image)
+        - use a png to bmp converter and manipulate the image to be 8-bit coloration
+        - use procreate to draw the left, right, and front sprite images
+        - put the original square.bmp and square.json into a seperate file in case it is neccessary
 
 
 

@@ -281,6 +281,14 @@ int main() {
             treasure.set_position(new_x, new_y);
 
             score++;
+
+            //If chicken intersects with the treasure, change the color of the screen 
+            //for celebration effect
+            int screen_timer = 80;
+            while(screen_timer > 0) {
+                
+            }
+
         }
 
         // Update score display

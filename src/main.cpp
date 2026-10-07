@@ -192,6 +192,13 @@ int main() {
         //UP
         if (bn::keypad::up_held())
         {
+            //add direction checker
+            if (direction != 0){
+                player = bn::sprite_items::chicken_front.create_sprite(player.x(), player.y());
+                direction = 0;
+            }
+
+
             player.set_y(player.y() - SPEED);
 
             if(bn::keypad::a_pressed() && speed_boosts_left > 0) {
@@ -209,6 +216,14 @@ int main() {
         //DOWN
         if (bn::keypad::down_held())
         {
+            
+            //add direction checker
+            if (direction != 0){
+                player = bn::sprite_items::chicken_front.create_sprite(player.x(), player.y());
+                direction = 0;
+            }
+
+
             player.set_y(player.y() + SPEED);
 
             if(bn::keypad::a_pressed() && speed_boosts_left > 0) {

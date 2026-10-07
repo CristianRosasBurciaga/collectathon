@@ -65,6 +65,7 @@ int main() {
     int score = 0;
     int speed_boosts_left = 3;
     int boost_timer = 0;
+    int screen_timer = 0;
 
 
 
@@ -283,19 +284,16 @@ int main() {
 
             //If chicken intersects with the treasure, change the color of the screen 
             //for celebration effect
-            int screen_timer = 60;
-            
+            screen_timer = 60;
             if(screen_timer > 0) {
                 bn::backdrop::set_color(bn::color(14, 20, 9));
-            }
-            if(screen_timer > 0) {
                 screen_timer--;
             }
+                
             if(screen_timer == 0) {
             bn::backdrop::set_color(bn::color(31, 31, 31));
 
             }
-
         }
 
         // Update score display

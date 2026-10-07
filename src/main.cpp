@@ -291,10 +291,6 @@ int main() {
                 screen_timer--;
             }
                 
-            if(screen_timer == 0) {
-            bn::backdrop::set_color(bn::color(31, 31, 31));
-
-            }
 
         // Update score display
         bn::string<MAX_SCORE_CHARS> score_string = bn::to_string<MAX_SCORE_CHARS>(score);

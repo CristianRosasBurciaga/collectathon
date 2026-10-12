@@ -63,7 +63,7 @@ int main() {
     // Will hold the sprites for the score
     bn::sprite_text_generator text_generator(common::fixed_8x16_sprite_font);
 
-    //NEW: displays boost number left
+    //Displays boost number left
     bn::vector<bn::sprite_ptr, MAX_SCORE_CHARS> score_sprites = {};
     bn::vector<bn::sprite_ptr, MAX_SCORE_CHARS> boost_sprites = {};
     
@@ -88,7 +88,7 @@ int main() {
 
     while (true) {
         bn::backdrop::set_color(bn::color(12,5,28));
-        //if player presses START, reset starting position of sprite and treasure
+        //if player presses the START input, reset starting position of sprite and treasure
         if(bn::keypad::start_pressed()){
             player = bn::sprite_items::chicken_front.create_sprite(PLAYER_X,PLAYER_Y);
             treasure = bn::sprite_items::dot.create_sprite(TREASURE_X, TREASURE_Y);
@@ -97,64 +97,17 @@ int main() {
             
         }
 
-        /* Refrence from butano-contained to help with new sprite images
-        
-            void sprites_animation_actions_scene(bn::sprite_text_generator& text_generator)
-    {
-        constexpr bn::string_view info_text_lines[] = {
-            "PAD: change sprite's direction",
-            "",
-            "START: go to next scene",
-        };
 
-        common::info info("Sprites animation actions", info_text_lines, text_generator);
-
-        bn::sprite_ptr ninja_sprite = bn::sprite_items::ninja.create_sprite(0, 0);
-        bn::sprite_animate_action<4> action = bn::create_sprite_animate_action_forever(
-                    ninja_sprite, 16, bn::sprite_items::ninja.tiles_item(), 0, 1, 2, 3);
-
-        while(! bn::keypad::start_pressed())
-        {
-            if(bn::keypad::left_pressed())
-            {
-                action = bn::create_sprite_animate_action_forever(
-                            ninja_sprite, 16, bn::sprite_items::ninja.tiles_item(), 8, 9, 10, 11);
-            }
-            else if(bn::keypad::right_pressed())
-            {
-                action = bn::create_sprite_animate_action_forever(
-                            ninja_sprite, 16, bn::sprite_items::ninja.tiles_item(), 12, 13, 14, 15);
-            }
-
-            if(bn::keypad::up_pressed())
-            {
-                action = bn::create_sprite_animate_action_forever(
-                            ninja_sprite, 16, bn::sprite_items::ninja.tiles_item(), 4, 5, 6, 7);
-            }
-            else if(bn::keypad::down_pressed())
-            {
-                action = bn::create_sprite_animate_action_forever(
-                            ninja_sprite, 16, bn::sprite_items::ninja.tiles_item(), 0, 1, 2, 3);
-            }
-
-            action.update();
-            info.update();
-            bn::core::update();
-        }
-    }
-
-*/
-
-//NEW: speed boost count
+//Speed boost count
     bn::string<MAX_SCORE_CHARS> speed_boosts_left_string = bn::to_string<MAX_SCORE_CHARS>(speed_boosts_left);
 
-    //NEW: update the boost display
+    //Update the boost display
     boost_sprites.clear();
     text_generator.generate(BOOST_X, BOOST_Y, speed_boosts_left_string, boost_sprites);
 
 
         //Moving mechanics for player
-        //LEFT
+        //LEFT input
         if (bn::keypad::left_held())
         {
 
@@ -177,7 +130,7 @@ int main() {
                 }  
         }
 
-        //RIGHT
+        //RIGHT input
         if (bn::keypad::right_held())
         {
             //add direction checker
@@ -200,7 +153,7 @@ int main() {
             }
         }
 
-        //UP
+        //UP input
         if (bn::keypad::up_held())
         {
             //add direction checker
@@ -224,7 +177,7 @@ int main() {
             }
         }
 
-        //DOWN
+        //DOWN input
         if (bn::keypad::down_held())
         {
             
@@ -255,7 +208,7 @@ int main() {
         }
 
 
-        //NEW: If player goes out of bounds, loop back to opposite side
+        //If player goes out of bounds, loop back to opposite side
         if(player.x() < MIN_X){
             player.set_x(MAX_X);
         }

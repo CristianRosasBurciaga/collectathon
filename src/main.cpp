@@ -21,7 +21,7 @@
 
 //github update test
 // Pixels / Frame player moves at
-static constexpr bn::fixed SPEED = 1;
+static constexpr bn::fixed SPEED = 1.2;
 
 // Width and height of the the player and treasure bounding boxes
 static constexpr bn::size PLAYER_SIZE = {8, 8};
@@ -71,7 +71,7 @@ int main() {
 
 
 
-    int boost_speed = 3;
+    int boost_speed = 2.5;
 
     //for chicken sprite
     int direction = 0; //0 is for the front facing direction 1 is for left, 2 is for right 
@@ -160,7 +160,7 @@ int main() {
             player.set_x(player.x() - SPEED);
 
             if(bn::keypad::a_pressed() && speed_boosts_left > 0) {
-                boost_timer = 60;
+                boost_timer = 180;
                 speed_boosts_left--;
                 }
 
@@ -181,7 +181,7 @@ int main() {
             player.set_x(player.x() + SPEED);
 
             if(bn::keypad::a_pressed() && speed_boosts_left > 0) {
-                boost_timer = 60;
+                boost_timer = 180;
                 speed_boosts_left --;               
             
             }
@@ -205,7 +205,7 @@ int main() {
             player.set_y(player.y() - SPEED);
 
             if(bn::keypad::a_pressed() && speed_boosts_left > 0) {
-                boost_timer = 60;                
+                boost_timer = 180;                
                 speed_boosts_left --;               
             
             }
@@ -230,7 +230,7 @@ int main() {
             player.set_y(player.y() + SPEED);
 
             if(bn::keypad::a_pressed() && speed_boosts_left > 0) {
-                    boost_timer = 60;
+                    boost_timer = 180;
                     speed_boosts_left --;               
             
             }

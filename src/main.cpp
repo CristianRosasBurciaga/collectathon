@@ -67,6 +67,7 @@ int main() {
     int speed_boosts_left = 3;
     int boost_timer = 0;
     int screen_timer = 0;
+    int treasure_timer = 0;
 
 
 
@@ -277,11 +278,9 @@ int main() {
         // variables for new locations & timer for corn 
         int new_x = rng.get_int(MIN_X, MAX_X);
         int new_y = rng.get_int(MIN_Y, MAX_Y);
-        int treasure_timer = 0;
 
         // If the bounding boxes overlap, set the treasure to a new location an increase score
-        if (player_rect.intersects(treasure_rect))
-        {
+        if (player_rect.intersects(treasure_rect)) {
             // Jump to any random point in the screen
             treasure.set_position(new_x, new_y);
 
@@ -298,8 +297,12 @@ int main() {
                 screen_timer--;
             }
 
-        if(treasure_timer) {
-
+        if(treasure_timer > 0) {
+            treasure_timer--;
+        } 
+        if(treasure_timer == 0) {
+            treasure_timer = 180;
+            treasure.set_position(new_x, new_y);
         }
 
         // Update score display

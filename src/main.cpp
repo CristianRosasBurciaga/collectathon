@@ -17,6 +17,7 @@
 #include "bn_sprite_items_chicken_left.h"
 #include "common_fixed_8x16_font.h"
 #include "bn_sprite_items_cornupd.h"
+#include "bn_sprite_items_cornbag.h"
 
 
 //github update test
@@ -47,6 +48,9 @@ static constexpr int PLAYER_Y = -70;
 
 static constexpr int TREASURE_X = 20;
 static constexpr int TREASURE_Y = -10;
+
+static constexpr int BAG_X = -112;
+static constexpr int BAG_Y = 72;
 
 static constexpr int BOOST_X = -70;
 static constexpr int BOOST_Y = -70;
@@ -79,6 +83,8 @@ int main() {
     int direction = 0; //0 is for the front facing direction 1 is for left, 2 is for right 
     bn::sprite_ptr player = bn::sprite_items::chicken_front.create_sprite(PLAYER_X, PLAYER_Y); //player spawn location..?
     bn::sprite_ptr treasure = bn::sprite_items::cornupd.create_sprite(TREASURE_X, TREASURE_Y);
+
+    bn::sprite_ptr cornbag = bn::sprite_items::cornbag.create_sprite(BAG_X, BAG_Y);
 
     while (true) {
         bn::backdrop::set_color(bn::color(12,5,28));

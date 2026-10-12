@@ -82,6 +82,9 @@ int main() {
     int intro_timer = 300; //60 frames for 5 seconds
 
 
+    //generate the intro text
+        text_generator.generate(-85, 0, "Oh no! Corn fell out!!", intro_sprites);
+        text_generator.generate(-75, 20, "Find it and eat it!", intro_sprites);
 
 
     int boost_speed = 2.5;
@@ -93,18 +96,24 @@ int main() {
 
     bn::sprite_ptr cornbag = bn::sprite_items::cornbag.create_sprite(BAG_X, BAG_Y);
 
-    //generate the intro text
-    text_generator.generate(-85, 0, "Oh no! Corn fell out!!", intro_sprites);
-    text_generator.generate(-75, 20, "Find it and eat it!", intro_sprites);
-
     while (true) {
         bn::backdrop::set_color(bn::color(12,5,28));
         //if player presses the START input, reset starting position of sprite and treasure
         if(bn::keypad::start_pressed()){
             player = bn::sprite_items::chicken_front.create_sprite(PLAYER_X,PLAYER_Y);
-            treasure = bn::sprite_items::dot.create_sprite(TREASURE_X, TREASURE_Y);
+            treasure = bn::sprite_items::cornupd.create_sprite(TREASURE_X, TREASURE_Y);
             score = 0;
             speed_boosts_left = 3;
+
+            intro_timer = 300; //reset it back to 5 seconds
+
+            intro_sprites.clear();
+
+        //generate the intro text
+            text_generator.generate(-85, 0, "Oh no! Corn fell out!!", intro_sprites);
+            text_generator.generate(-75, 20, "Find it and eat it!", intro_sprites);
+
+            
             
         }
 

@@ -60,3 +60,4 @@ Added new, better comments
 New ideas for sprites:
 make the treasure chicken food for the chicken to eat
 add a background sprite that is an open bag of food to imply that chicken food keeps falling out
+add text to explain how to play the game

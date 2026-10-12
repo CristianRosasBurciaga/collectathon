@@ -66,6 +66,9 @@ int main() {
     //Displays boost number left
     bn::vector<bn::sprite_ptr, MAX_SCORE_CHARS> score_sprites = {};
     bn::vector<bn::sprite_ptr, MAX_SCORE_CHARS> boost_sprites = {};
+
+    //add text for game explanation
+    bn::vector<bn::sprite_ptr, 64> intro_sprites; //new intro sprite
     
     //defining values that update as the game goes on
     //score, speed, celebration & treasure timers
@@ -74,6 +77,10 @@ int main() {
     int boost_timer = 0;
     int celebration_countdown = 0;
     int treasure_timer = 0;
+
+    //timer for intro text
+    int intro_timer = 300; //60 frames for 5 seconds
+
 
 
 
@@ -86,6 +93,10 @@ int main() {
 
     bn::sprite_ptr cornbag = bn::sprite_items::cornbag.create_sprite(BAG_X, BAG_Y);
 
+    //generate the intro text
+    text_generator.generate(-85, 0, "Oh no! Corn fell out!!", intro_sprites);
+    text_generator.generate(-75, 20, "Find it and eat it!", intro_sprites);
+
     while (true) {
         bn::backdrop::set_color(bn::color(12,5,28));
         //if player presses the START input, reset starting position of sprite and treasure
@@ -96,6 +107,12 @@ int main() {
             speed_boosts_left = 3;
             
         }
+
+//intro timer
+if(intro_timer > 0){
+        intro_timer--;
+    }
+
 
 
 //Speed boost count

@@ -62,25 +62,27 @@ int main() {
     //NEW: displays boost number left
     bn::vector<bn::sprite_ptr, MAX_SCORE_CHARS> score_sprites = {};
     bn::vector<bn::sprite_ptr, MAX_SCORE_CHARS> boost_sprites = {};
-
+    
+    //defining values that update as the game goes on
+    //score, speed, celebration & treasure timers
     int score = 0;
     int speed_boosts_left = 3;
     int boost_timer = 0;
-    int screen_timer = 0;
+    int celebration_countdown = 0;
     int treasure_timer = 0;
 
 
 
     int boost_speed = 2.5;
 
-    //for chicken sprite
+    //Spawn location for chicken and treasure
     int direction = 0; //0 is for the front facing direction 1 is for left, 2 is for right 
     bn::sprite_ptr player = bn::sprite_items::chicken_front.create_sprite(PLAYER_X, PLAYER_Y); //player spawn location..?
     bn::sprite_ptr treasure = bn::sprite_items::corn.create_sprite(TREASURE_X, TREASURE_Y);
 
     while (true) {
         bn::backdrop::set_color(bn::color(12,5,28));
-        //if player presses start reset starting position of sprite and treasure
+        //if player presses START, reset starting position of sprite and treasure
         if(bn::keypad::start_pressed()){
             player = bn::sprite_items::chicken_front.create_sprite(PLAYER_X,PLAYER_Y);
             treasure = bn::sprite_items::dot.create_sprite(TREASURE_X, TREASURE_Y);
@@ -237,11 +239,11 @@ int main() {
 
             if(boost_timer > 0){
                 player.set_y(player.y() + SPEED + boost_speed);
-                // boost_timer--;
             }
 
         }
-
+        
+        //Starts boost timer if it equals 0
         if(boost_timer > 0){
             boost_timer--;
         }
@@ -275,7 +277,7 @@ int main() {
                                           TREASURE_SIZE.width(),
                                           TREASURE_SIZE.height());
 
-        // variables for new locations & timer for corn 
+        // variables for new locations for treasure 
         int new_x = rng.get_int(MIN_X, MAX_X);
         int new_y = rng.get_int(MIN_Y, MAX_Y);
 
@@ -288,20 +290,22 @@ int main() {
 
             //If chicken intersects with the treasure, change the color of the screen 
             //for celebration effect
-            screen_timer = 60;
-            treasure_timer = 110;
+            celebration_countdown = 60;
+            treasure_timer = 100;
         }
 
-        if(screen_timer > 0) {
+        //screen changes color if chicken intersects with treasure
+        if(celebration_countdown > 0) {
                 bn::backdrop::set_color(bn::color(14, 20, 9));
-                screen_timer--;
+                celebration_countdown--;
             }
 
+        //treasure changes position after 100 frames has passed
         if(treasure_timer > 0) {
             treasure_timer--;
         } 
         if(treasure_timer == 0) {
-            treasure_timer = 110;
+            treasure_timer = 100;
             treasure.set_position(new_x, new_y);
         }
 

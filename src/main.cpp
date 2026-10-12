@@ -16,7 +16,7 @@
 #include "bn_sprite_items_chicken_right.h"
 #include "bn_sprite_items_chicken_left.h"
 #include "common_fixed_8x16_font.h"
-#include "bn_sprite_items_corn.h"
+#include "bn_sprite_items_cornupd.h"
 
 
 //github update test
@@ -78,7 +78,7 @@ int main() {
     //Spawn location for chicken and treasure
     int direction = 0; //0 is for the front facing direction 1 is for left, 2 is for right 
     bn::sprite_ptr player = bn::sprite_items::chicken_front.create_sprite(PLAYER_X, PLAYER_Y); //player spawn location..?
-    bn::sprite_ptr treasure = bn::sprite_items::corn.create_sprite(TREASURE_X, TREASURE_Y);
+    bn::sprite_ptr treasure = bn::sprite_items::cornupd.create_sprite(TREASURE_X, TREASURE_Y);
 
     while (true) {
         bn::backdrop::set_color(bn::color(12,5,28));

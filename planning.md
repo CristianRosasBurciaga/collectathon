@@ -48,6 +48,14 @@ if statements that repeat loop and add score
         - if statement for each dpad direction input that checks what number the direction is and changes it accordingly
 
 
+## Make one or more improvements to the game itself. 
+Improved graphics: added new sprites for better graphic/decoration
+New features: added a timer for the treasure to reset to different locations after a certain amount of time
+
+## Make one or more improvements to the code.
+Removed dead code / outdated comments
+Added new, better comments
+
 
 New ideas for sprites:
 make the treasure chicken food for the chicken to eat

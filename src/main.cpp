@@ -113,7 +113,9 @@ if(intro_timer > 0){
         intro_timer--;
     }
 
-
+if(intro_timer == 0){
+    intro_sprites.clear(); //text goes away
+}
 
 //Speed boost count
     bn::string<MAX_SCORE_CHARS> speed_boosts_left_string = bn::to_string<MAX_SCORE_CHARS>(speed_boosts_left);

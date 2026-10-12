@@ -16,6 +16,7 @@
 #include "bn_sprite_items_chicken_right.h"
 #include "bn_sprite_items_chicken_left.h"
 #include "common_fixed_8x16_font.h"
+#include "bn_sprite_items_corn.h"
 
 
 //github update test
@@ -74,7 +75,7 @@ int main() {
     //for chicken sprite
     int direction = 0; //0 is for the front facing direction 1 is for left, 2 is for right 
     bn::sprite_ptr player = bn::sprite_items::chicken_front.create_sprite(PLAYER_X, PLAYER_Y); //player spawn location..?
-    bn::sprite_ptr treasure = bn::sprite_items::dot.create_sprite(TREASURE_X, TREASURE_Y);
+    bn::sprite_ptr treasure = bn::sprite_items::corn.create_sprite(TREASURE_X, TREASURE_Y);
 
     while (true) {
         bn::backdrop::set_color(bn::color(12,5,28));
@@ -143,6 +144,7 @@ int main() {
     text_generator.generate(BOOST_X, BOOST_Y, speed_boosts_left_string, boost_sprites);
 
 
+        //Moving mechanics for player
         //LEFT
         if (bn::keypad::left_held())
         {
@@ -234,7 +236,7 @@ int main() {
 
             if(boost_timer > 0){
                 player.set_y(player.y() + SPEED + boost_speed);
-
+                // boost_timer--;
             }
 
         }
@@ -272,12 +274,15 @@ int main() {
                                           TREASURE_SIZE.width(),
                                           TREASURE_SIZE.height());
 
+        // variables for new locations & timer for corn 
+        int new_x = rng.get_int(MIN_X, MAX_X);
+        int new_y = rng.get_int(MIN_Y, MAX_Y);
+        int treasure_timer = 0;
+
         // If the bounding boxes overlap, set the treasure to a new location an increase score
         if (player_rect.intersects(treasure_rect))
         {
             // Jump to any random point in the screen
-            int new_x = rng.get_int(MIN_X, MAX_X);
-            int new_y = rng.get_int(MIN_Y, MAX_Y);
             treasure.set_position(new_x, new_y);
 
             score++;
@@ -285,11 +290,17 @@ int main() {
             //If chicken intersects with the treasure, change the color of the screen 
             //for celebration effect
             screen_timer = 60;
+            treasure_timer = 180;
         }
+
         if(screen_timer > 0) {
                 bn::backdrop::set_color(bn::color(14, 20, 9));
                 screen_timer--;
             }
+
+        if(treasure_timer) {
+
+        }
 
         // Update score display
         bn::string<MAX_SCORE_CHARS> score_string = bn::to_string<MAX_SCORE_CHARS>(score);

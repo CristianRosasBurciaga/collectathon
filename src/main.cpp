@@ -22,7 +22,7 @@
 
 //github update test
 // Pixels / Frame player moves at
-static constexpr bn::fixed SPEED = 1.2;
+static constexpr bn::fixed SPEED = 1;
 
 // Width and height of the the player and treasure bounding boxes
 static constexpr bn::size PLAYER_SIZE = {8, 8};
@@ -87,7 +87,7 @@ int main() {
         text_generator.generate(-75, 20, "Find it and eat it!", intro_sprites);
 
 
-    int boost_speed = 2.5;
+    int boost_speed = 2;
 
     //Spawn location for chicken and treasure
     int direction = 0; //0 is for the front facing direction 1 is for left, 2 is for right 

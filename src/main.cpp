@@ -277,8 +277,8 @@ if(intro_timer == 0){
 
             //If chicken intersects with the treasure, change the color of the screen 
             //for celebration effect
-            celebration_countdown = 60;
-            treasure_timer = 90;
+            celebration_countdown = 30;
+            treasure_timer = 80;
         }
 
         //screen changes color if chicken intersects with treasure
@@ -292,7 +292,7 @@ if(intro_timer == 0){
             treasure_timer--;
         } 
         if(treasure_timer == 0) {
-            treasure_timer = 90;
+            treasure_timer = 80;
             treasure.set_position(new_x, new_y);
         }
 
